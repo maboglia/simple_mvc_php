@@ -1,6 +1,6 @@
 <?php 
 
-class Home extends Controller{
+class Features extends Controller{
 
     public function index($nome = '')
     {

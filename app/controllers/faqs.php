@@ -1,6 +1,6 @@
 <?php 
 
-class Home extends Controller{
+class Faqs extends Controller{
 
     public function index($nome = '')
     {
