@@ -1,5 +1,5 @@
 <?php
-// require_once '../app/dao/UtentiDAO.php';
+// require_once '../daodao/UtentiDAO.php';
 
 class users extends Controller
 {
@@ -12,7 +12,7 @@ class users extends Controller
         //NB: la chiamata al metodo model("classe") del controller (che estendo) include la "classe" e ritorna un oggetto del tipo richiesto
         //alternativamente includo la classe (nei vari modi in cui si può fare) e creo una nuova istanza dell'oggetto
 
-        $utenti = $this->model("UtentiDAO");
+        $utenti = $this->dao("UtentiDAO");
         //         $utenti = getAll();
 
         $this->view('main/header');
@@ -26,7 +26,7 @@ class users extends Controller
      */
     public function vista($id = 1)
     {
-        $utenti = $this->model("UtentiDAO");
+        $utenti = $this->dao("UtentiDAO");
         $this->view('main/header');
         $this->view('users/view', ['utenti' => $utenti->findOne($id)]);
         $this->view('main/footer');
@@ -36,7 +36,7 @@ class users extends Controller
      */
     public function delete($id)
     {
-        $utenti = $this->model("UtentiDAO");
+        $utenti = $this->dao("UtentiDAO");
         $messaggio = "non ha funzionato, riprova!";
         //elimina utente
         if ($utenti->delete($id)) {
@@ -55,7 +55,7 @@ class users extends Controller
  */
     public function insert()
     {
-        $utenti = $this->model("UtentiDAO");
+        $utenti = $this->dao("UtentiDAO");
         $messaggio = "crea nuovo utente";
         //se ci sonoi valori post allora crea utente
         if (isset($_POST['nome']) && isset($_POST['cognome'])) {
@@ -77,11 +77,11 @@ class users extends Controller
 
     public function json($id = 1)
     {
-        // $utenti = $this->model("UtentiDAO");
+        // $utenti = $this->dao("UtentiDAO");
 
         // $data = $utenti->findAll();
         // /** whatever you're serializing **/;
-        $utenti = $this->model("UtentiDAO");
+        $utenti = $this->dao("UtentiDAO");
         $data = $utenti->findOne($id);
         header('Content-Type: application/json');
         echo json_encode($data[0]->nome);
