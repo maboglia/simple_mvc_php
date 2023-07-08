@@ -9,7 +9,7 @@ class About extends Controller{
             $user->nome = $nome;
             
             $this->view('main/header', ['nome'=>$user->nome]);
-            $this->view('home/index', ['nome'=>$user->nome]);
+            $this->view('about/index', ['titolo'=>'about page', 'message'=>'Messaggio personalizzato', 'lista'=>['prop1'=>'value1', 'prop2'=>'value2']]);
             $this->view('main/footer', ['nome'=>$user->nome]);
 
     }
