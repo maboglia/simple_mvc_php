@@ -9,7 +9,7 @@ class Home extends Controller{
             $user->nome = $nome;
             
             $this->view('main/header', ['nome'=>$user->nome]);
-            $this->view('home/index', ['titolo' => 'home page', 'message' => 'Messaggio personalizzato', 'lista' => ['prop1' => 'value1', 'prop2' => 'value2']]);
+            $this->view('home/index', ['titolo' => 'home page', 'message' => '', 'lista' => ['prop1' => 'value1', 'prop2' => 'value2']]);
             $this->view('main/footer', ['nome'=>$user->nome]);
 
     }
